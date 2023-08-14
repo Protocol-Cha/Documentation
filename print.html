@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Overview.html">Protocol Overvoew</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction </a></li><li class="chapter-item expanded "><a href="Introduction_zh.html"><strong aria-hidden="true">2.</strong> 介紹 </a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Overview.html">Protocol Overvoew</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction </a></li><li class="chapter-item expanded "><a href="Introduction_zh.html"><strong aria-hidden="true">2.</strong> 介紹 </a></li><li class="chapter-item expanded "><a href="FAQ.html"><strong aria-hidden="true">3.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="FAQ_zh.html"><strong aria-hidden="true">4.</strong> 常見問題</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -219,7 +219,7 @@
 <p>Secondly, the CHAI component. CHAI is an ancient and practical DSR interest-bearing token. We chose it because it's been around for almost four years, and our thorough checks found no potential vulnerabilities. Its implementation is very native-like, giving us more flexibility in writing smart contracts.</p>
 <p>These two components together form the CHA token. Users will earn from both these tokens. Periodically, we'll synchronize funds, cross-chain any unutilized DAI in the contract to deposit into the DSR protocol, and bring back CHAI to place in the Vault contract.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="有關cha的詳細介紹"><a class="header" href="#有關cha的詳細介紹">有關CHA的詳細介紹</a></h1>
-<p>我們的團隊成員經常在社群中聽到有人抱怨ETH的Gas費過於高昂，以至於他們想要存入一些DAI卻發現花費遠大於未來預期收入的言論。通過調研市場需求，我們決定在已有項目作爲基礎，將以太鏈的DSR引入其他低成本的鏈上，從而使得用戶不再受到高昂手續費的約束，將資金以更爲靈活的方式進行儲蓄與組合。</p>
+<p>我們的團隊成員經常在社群中聽到有人抱怨ETH的Gas費過於高昂，以至於他們想要存入一些DAI卻發現花費遠大於未來預期收入的言論。通過調研市場需求，我們決定以已有項目作爲基礎，將以太鏈的DSR引入其他低成本的鏈上，從而使得用戶不再受到高昂手續費的約束，將資金以更爲靈活的方式進行儲蓄與組合。</p>
 <p>CHAI是一個位於以太鏈上的DSR計息收益代幣, 基於EIP-5115實現，其價格會隨著時間積纍DAI的存入獎勵，這也是我們協議的名字來源。通過將該代幣通過Wormhole跨鏈橋引入其他鏈上，我們可以依賴其本身的價格模型進行計息，從而使得利息積纍過程變得更爲平滑和可靠。</p>
 <h2 id="cha的作用"><a class="header" href="#cha的作用">CHA的作用</a></h2>
 <p>我們將自己的所有權重新交還給了用戶。</p>
@@ -229,6 +229,82 @@
 <p>首先是用戶的DAI存款。這部分非常容易理解，用戶將DAI存入協議，這部分存款將會作爲Vault的一部分。爲了盡可能提高自己利用率，提升協議的整體年化，我們會將這部分資金投入AAVE等經過多輪審計且信譽良好的協議中賺取借貸收益，同時將這部分收益分享給所有的CHA持有人。由於Euler.Finance事件已經證明了Web3世界隱含的危險性，因此我們將會不定期進行分析與評估，以決定是否將用戶資金進行取出或存放于其他信譽良好的協議中。</p>
 <p>其次則是CHAI部分。CHAI是一個古老且實用的DSR計息打包代幣。我們選用它的原因首先是其已經存在了接近4年時間，同時在我們全面且細緻的檢查中并未發現任何潛在漏洞；其次是它的實現非常近似於原生，這使得我們在編寫智能合約上擁有更好的自由度。</p>
 <p>這兩部分共同構成了CHA代幣。用戶將同時從這兩種代幣中賺取對應的收益，我們也將會不定期完成資金的同步過程，將合約中所有未被使用鎖定的DAI經過跨鏈后存入DSR協議并將CHAI跨鏈回來放入Vault合約中。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="faq"><a class="header" href="#faq">FAQ</a></h1>
+<h2 id="general"><a class="header" href="#general">General</a></h2>
+<h3 id="are-my-deposit-returns-instantaneous"><a class="header" href="#are-my-deposit-returns-instantaneous">Are my deposit returns instantaneous?</a></h3>
+<p>Once you deposit DAI into the protocol, earnings start to accumulate immediately without any extra waiting period. Due to the native cross-chain bridge of some chains possibly having a dispute period of up to 7 days, there might be a situation where earnings remain at 0 during the first week after the protocol is launched. Thus, we'll implement measures to reduce the cross-chain time early on to enhance the return rate during this period.</p>
+<h3 id="can-i-withdraw-my-assets-immediately"><a class="header" href="#can-i-withdraw-my-assets-immediately">Can I withdraw my assets immediately?</a></h3>
+<p>If you hold CHA, due to our protocol's implementation principles, we need to lock this portion of your tokens when you apply to withdraw DAI. You won't be able to withdraw assets instantly. While waiting for the cross-chain synchronization, holding CHA will continue to accrue earnings. After completing the cross-chain sync process, you can withdraw your assets anytime.</p>
+<p>If you hold CHAI, you can exchange your CHAI tokens for DAI anytime as liquidity allows. If the current protocol DAI cannot meet your withdrawal requirements, you can also request a withdrawal from the protocol. CHAI holders will also continue to earn during the cross-chain synchronization period. After the sync process, you can withdraw anytime.</p>
+<p>Please note that regardless of the assets you hold, once the cross-chain sync process is complete, you won't earn any returns, so don't forget to withdraw your assets promptly.</p>
+<h3 id="how-long-does-the-cross-chain-synchronization-operation-take"><a class="header" href="#how-long-does-the-cross-chain-synchronization-operation-take">How long does the cross-chain synchronization operation take?</a></h3>
+<p>Cross-chain synchronization is divided into two parts: deposit and withdrawal.</p>
+<p>For deposits, we withdraw the unlocked portion of DAI that users deposit into the protocol, transfer it to the Ethereum chain to deposit as CHAI, and then bring the CHAI back to the original chain's protocol. Since each chain's native bridge verification time varies, this can take several hours to a week.</p>
+<p>For withdrawals, we extract the corresponding CHAI from the protocol, take it out on Ethereum to retrieve as DAI, and then transfer the DAI back to the original chain's protocol. Since Ethereum requires about 96 confirmations to reach the FINALITY state and considering operation execution time, it takes about 30 minutes.</p>
+<p>Initially, we will use third-party cross-chain bridges or even centralized exchanges to save on deposit operation time, aiming to guarantee the protocol's annualized return rate. We expect the execution cycle to range from 12 hours to a day. Over time, or when deposits stabilize, we'll gradually transition to native cross-chain bridges to ensure the protocol's security.</p>
+<h3 id="can-i-convert-cha-tokens-to-chai"><a class="header" href="#can-i-convert-cha-tokens-to-chai">Can I convert CHA tokens to CHAI?</a></h3>
+<p>You can choose to convert your CHA tokens to CHAI at any time. However, this conversion requires a full cross-chain sync cycle, which might take over 7 days. You can also use the emergency withdrawal feature to take out your CHA in corresponding proportions of DAI and CHAI.</p>
+<p>When liquidity allows, you can redeem your held CHAI in the form of DAI and then reinvest to convert your original CHAI to CHA. We recommend selling through Balancer at a better price to earn the price difference.</p>
+<h3 id="why-is-the-displayed-yield-different-from-the-apr-provided-by-dsr"><a class="header" href="#why-is-the-displayed-yield-different-from-the-apr-provided-by-dsr">Why is the displayed yield different from the APR provided by DSR?</a></h3>
+<p>Due to our protocol's reliance on cross-chain synchronization, even though we've adopted methods to reduce cross-chain time and improve fund utilization, we still can't offer an APR consistent with DSR itself. Therefore, the actual yield might be slightly lower.</p>
+<h3 id="are-cha-and-chai-the-same-on-each-chain"><a class="header" href="#are-cha-and-chai-the-same-on-each-chain">Are CHA and CHAI the same on each chain?</a></h3>
+<p>Note that, due to our implementation, CHA token prices and contract addresses on each chain are different. Do not attempt any cross-chain interactions, as we are not responsible for any losses. </p>
+<p>CHAI tokens, other than those on Ethereum, are minted and redeemed by Wormhole Bridge. Essentially, they're the same thing with consistent pricing, redeemable at the same ratio. Due to liquidity concerns, market sale prices might differ.</p>
+<h2 id="providing-liquidity"><a class="header" href="#providing-liquidity">Providing Liquidity</a></h2>
+<h3 id="earnings-from-providing-liquidity"><a class="header" href="#earnings-from-providing-liquidity">Earnings from Providing Liquidity</a></h3>
+<p>By providing CHA/CHAI liquidity on Balancer, you can earn swap fees on top of the basic earnings from holding CHA and CHAI. You can act as a potential arbitrageur, selling CHAI at a premium to users who want to instantly convert from CHA to CHAI to get the full return rate. Thus, in theory, you might even earn more than the DSR itself.</p>
+<h3 id="do-i-need-to-pledge-lp-to-earn"><a class="header" href="#do-i-need-to-pledge-lp-to-earn">Do I need to pledge LP to earn?</a></h3>
+<p>We're committed to giving users more choices and control. You don't need to stake LP tokens in any protocol. However, we're exploring partnerships with other protocols to introduce LP lending or even yield in the future, possibly requiring you to deposit LP in other protocols for additional earnings.</p>
+<h2 id="security"><a class="header" href="#security">Security</a></h2>
+<p>Security is the lifeline that determines the survival of every protocol. Therefore, at Cha.Money, we place great emphasis on contract security. Since our protocol is not yet live, we cannot display any audit reports. However, we will implement measures to ensure the overall security of the protocol.</p>
+<h3 id="timelock"><a class="header" href="#timelock">Timelock</a></h3>
+<p>For every proxy contract and essential control function, we will use a time-lock contract that lasts up to 7 days. If users notice any anomalies, they can invoke the Emergency Withdraw function to directly withdraw the corresponding proportions of DAI and CHAI from the Vault.</p>
+<h3 id="multisig-wallet"><a class="header" href="#multisig-wallet">Multisig Wallet</a></h3>
+<p>Our team members come from Moe.Finance; therefore, we will continue to use our 3-5 multisig wallet for management. This approach will minimize the chances of malicious actions caused by a portion of our staff.</p>
+<h3 id="operator"><a class="header" href="#operator">Operator</a></h3>
+<p>By separating protocol governance from cross-chain sync operators, we can perform cross-chain synchronization in a more flexible manner during the early stages of the project. Operators will only be allowed to extract the unlocked portion of DAI from the protocol and apply for the redemption of a portion of CHAI tokens. At the same time, operators will use a cross-chain multisig wallet. Even in the worst-case scenario of multiple EOA (Externally Owned Accounts) performing malicious actions simultaneously, users can use the Emergency Withdraw function to retrieve the remaining locked portions of DAI and CHAI tokens from the protocol.</p>
+<h3 id="guardian"><a class="header" href="#guardian">Guardian</a></h3>
+<p>To prevent subsequent users from depositing assets into the protocol after an operator has carried out malicious actions, leading to even greater losses, we have introduced external guardians. We plan to delegate this authority to MakerDAO, allowing them to execute the Emergency Pause function during the timelock waiting period. This action will disable all functions except for Emergency Withdraw, minimizing potential losses.</p>
+<h3 id="oracle"><a class="header" href="#oracle">Oracle</a></h3>
+<p>The core functionality of Cha.Money does not rely on external oracles. However, considering that we might need to integrate with external partners and provide price feeds for the redemption operation that directly converts CHAI to DAI, we are currently in talks with Axelar.Network to safely and reliably obtain the exchange ratio between CHAI and DAI.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="常見問題"><a class="header" href="#常見問題">常見問題</a></h1>
+<h2 id="一般"><a class="header" href="#一般">一般</a></h2>
+<h3 id="我的存款收益是即時的嗎"><a class="header" href="#我的存款收益是即時的嗎">我的存款收益是即時的嗎？</a></h3>
+<p>一旦您將DAI存入協議，收益將會即時開始纍積，不會有額外的等待時間。由於部分鏈的原生跨鏈橋可能要等待長達7天的爭議期，因此在協議剛上綫的一周時間内，可能會出現收益一直為0的情況，因此在協議初期我們將采取一些措施來縮短跨鏈時間，來提升這部分時間内的收益率。</p>
+<h3 id="我可以立即取出我的資產嗎"><a class="header" href="#我可以立即取出我的資產嗎">我可以立即取出我的資產嗎？</a></h3>
+<p>如果您持有CHA，受限于我們的協議實現原理，我們需要在申請取出DAI時鎖定您的這部分代幣，同時您將無法即時取出存入資產。在等待我們完成跨鏈同步的這段時間内，您持有CHA仍將繼續積纍收益，在我們執行完跨鏈同步流程後，您將可以隨時在時候的時間内取出您的資產。</p>
+<p>如果您持有CHAI，您將可以隨時在協議流動性允許的情況下將您的CHAI代幣兌換為DAI。如果當前協議中的DAI無法滿足您的取款需求，您也可以向協議發出取款請求。在等待我們完成跨鏈同步的這段時間内，您持有CHAI也仍將繼續積纍收益，在我們執行完跨鏈同步流程後，您將可以隨時在時候的時間内取出您的資產。</p>
+<p>請注意，無論您持有何種資產，一旦跨鏈同步流程完成，您將不會積纍任何收益，因此請不要忘記及時提取您的資產。</p>
+<h3 id="跨鏈同步操作需要多久時間"><a class="header" href="#跨鏈同步操作需要多久時間">跨鏈同步操作需要多久時間？</a></h3>
+<p>跨鏈同步操作分爲兩個部分，存入和取出。</p>
+<p>在存入操作中，我們會將用戶存入協議中的未鎖定部分DAI取出，跨出到以太鏈上存款為CHAI，并將CHAI跨入原鏈的協議中。由於每個鏈的原生橋所需要的驗證時間并不相同，因此大約需要數小時至一周不等的時間。</p>
+<p>在取出操作中，我們會將協議中的對應部分CHAI取出，跨出到以太坊上取出為DAI，並將DAI跨入原鏈的協議中。由於以太坊需要大約96個確認才能到達<code>FINALITY</code>狀態；考慮到操作執行時間，因此需要花費大約30分鐘完成。</p>
+<p>在協議開放的初期，我們將會使用第三方跨鏈橋甚至中心化交易所來節約存入操作所需的時間，以此保障協議的年化收益率，預計執行周期大約在12小時到一天不等。在協議開放一段時間或存款比較穩定的情況下，我們將會逐漸過度到原生跨鏈橋，以此保障協議本身的安全性。</p>
+<h3 id="我可以將cha代幣轉換為chai嗎"><a class="header" href="#我可以將cha代幣轉換為chai嗎">我可以將CHA代幣轉換為CHAI嗎？</a></h3>
+<p>您可以隨時選擇將您的CHA代幣轉換為CHAI，不過請注意這個轉換過程需要一個完整的跨鏈同步周期，因此可能需要等待超過7天的時間。當然您也可以選擇使用緊急提款功能，將您的CHA以對應份額的DAI和CHAI形式進行取出。</p>
+<p>在協議流動性允許時，您可以將持有的CHAI以DAI的形式進行贖回，然後再次進行投入即可將原本的CHAI轉換爲CHA。當然我們更建議您通過Balancer以更優的價格進行出售，以賺取這部分差價。</p>
+<h3 id="爲什麽頁面顯示的收益與dsr所提供的年化不同"><a class="header" href="#爲什麽頁面顯示的收益與dsr所提供的年化不同">爲什麽頁面顯示的收益與DSR所提供的年化不同？</a></h3>
+<p>由於我們的協議依賴於跨鏈同步操作，儘管我們已經采取一些方式減少跨鏈時間和提供資金利用率，但是我們仍然無法提供與DSR本身一致的APR，因此實際的收益率可能會略低。</p>
+<h3 id="每條鏈上的cha和chai是一樣的嗎"><a class="header" href="#每條鏈上的cha和chai是一樣的嗎">每條鏈上的CHA和CHAI是一樣的嗎？</a></h3>
+<p>請注意，由於我們的實現原理，每條鏈上的CHA代幣價格和合約地址均不相同，請勿嘗試進行任何跨鏈交互，我們不對由此產生的損失負責。</p>
+<p>除以太鏈以外的CHAI代幣均由Wormhole Bridge處理鑄造和贖回流程，因此他們在本質上是同樣的東西，價格均保持一致，可以以同樣的比例進行贖回；不過由於涉及流動性問題，直接在市場上進行出售的價格可能會有所不同。</p>
+<h2 id="提供流動性"><a class="header" href="#提供流動性">提供流動性</a></h2>
+<h3 id="提供流動性的收益"><a class="header" href="#提供流動性的收益">提供流動性的收益</a></h3>
+<p>通過在Balancer上提供CHA/CHAI流動性，您可以在分辨賺取CHA和CHAI代幣的基礎收益率的基礎之上，獲取掉期收益。您將可以作爲潛在的套利者，向想要立即從CHA轉換爲CHAI代幣以獲得完整收益率的用戶溢價出售CHAI代幣並賺取額外的掉期費用。因此在理論情況下，您甚至可以賺取超過DSR本身的收益率。</p>
+<h3 id="是否需要質押lp才可以獲取收益"><a class="header" href="#是否需要質押lp才可以獲取收益">是否需要質押LP才可以獲取收益</a></h3>
+<p>我們致力於為用戶提供更多的選擇和掌控權，因此您不需要將LP代幣在任何協議中進行質押。當然，我們也嘗試接觸其他協議，在未來推出包括LP質押借貸甚至Yield，届時可能需要您將LP存放於其他協議中以賺取額外的收益。</p>
+<h2 id="安全性"><a class="header" href="#安全性">安全性</a></h2>
+<p>安全性問題是決定每個協議的生死綫，因此在Cha.Money，我們格外注重合約安全性。由於我們的協議目前還沒有上綫，因此我們無法展示任何審計報告。不過我們將會采取一些措施來確保協議的整體安全性。</p>
+<h3 id="時間鎖"><a class="header" href="#時間鎖">時間鎖</a></h3>
+<p>對於每個代理合約及重要的控制功能，我們都將使用時間長達7天的時間鎖合約。一旦用戶發現異常情況，他們將能夠調用<code>Emergency Withdraw</code>直接將Vault中對應比例的DAI和CHAI進行取出。</p>
+<h3 id="多簽錢包"><a class="header" href="#多簽錢包">多簽錢包</a></h3>
+<p>我們的團隊成員來自於Moe.Finance，因此我們將保留使用我們的3-5多簽錢包來進行管理，這將能夠最大程度減少由於我們部分員工所致的惡意情況發生。</p>
+<h3 id="操作者"><a class="header" href="#操作者">操作者</a></h3>
+<p>通過將協議治理與跨鏈同步操作者進行分離，我們可以在項目前期以更靈活的方式進行跨鏈同步。操作者將只被允許提取協議中未鎖定部分的DAI和申請贖回部分的CHAI代幣，同時操作者將使用跨鏈多簽錢包。即使在多個EOA同時進行惡意操作的最壞情況下，用戶也可將協議中剩餘的鎖定部分DAI和CHAI代幣以<code>Emergency Withdraw</code>方式進行取出。</p>
+<h3 id="守護者"><a class="header" href="#守護者">守護者</a></h3>
+<p>爲了在出現操作者執行惡意行爲之後避免後續用戶將資產存入協議中，導致出現更大的損失，因此我們引入了外部守護者。我們計劃將該權限分配給MakerDAO，以便在時間鎖等待期内能夠執行<code>Emergency Pause</code>功能，以禁用除<code>Emergency Withdraw</code>以外的全部功能，降低潛在損失。</p>
+<h3 id="預言機"><a class="header" href="#預言機">預言機</a></h3>
+<p>Cha.Money的基礎功能不依賴於外部預言機進行實現。但是考慮到我們可能需要整合外部的合作夥伴，同時需要為將CHAI直接轉換為DAI的贖回操作提供喂價，因此我們目前正在與Axelar.Network進行接觸，以便能夠安全可靠的獲取CHAI與DAI之間的兌換比例。</p>
 
                     </main>
 

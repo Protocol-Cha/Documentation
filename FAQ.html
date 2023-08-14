@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FAQ</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Overview.html">Protocol Overvoew</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="Introduction.html"><strong aria-hidden="true">1.</strong> Introduction </a></li><li class="chapter-item expanded "><a href="Introduction_zh.html"><strong aria-hidden="true">2.</strong> 介紹 </a></li><li class="chapter-item expanded "><a href="FAQ.html" class="active"><strong aria-hidden="true">3.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="FAQ_zh.html"><strong aria-hidden="true">4.</strong> 常見問題</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="faq"><a class="header" href="#faq">FAQ</a></h1>
+<h2 id="general"><a class="header" href="#general">General</a></h2>
+<h3 id="are-my-deposit-returns-instantaneous"><a class="header" href="#are-my-deposit-returns-instantaneous">Are my deposit returns instantaneous?</a></h3>
+<p>Once you deposit DAI into the protocol, earnings start to accumulate immediately without any extra waiting period. Due to the native cross-chain bridge of some chains possibly having a dispute period of up to 7 days, there might be a situation where earnings remain at 0 during the first week after the protocol is launched. Thus, we'll implement measures to reduce the cross-chain time early on to enhance the return rate during this period.</p>
+<h3 id="can-i-withdraw-my-assets-immediately"><a class="header" href="#can-i-withdraw-my-assets-immediately">Can I withdraw my assets immediately?</a></h3>
+<p>If you hold CHA, due to our protocol's implementation principles, we need to lock this portion of your tokens when you apply to withdraw DAI. You won't be able to withdraw assets instantly. While waiting for the cross-chain synchronization, holding CHA will continue to accrue earnings. After completing the cross-chain sync process, you can withdraw your assets anytime.</p>
+<p>If you hold CHAI, you can exchange your CHAI tokens for DAI anytime as liquidity allows. If the current protocol DAI cannot meet your withdrawal requirements, you can also request a withdrawal from the protocol. CHAI holders will also continue to earn during the cross-chain synchronization period. After the sync process, you can withdraw anytime.</p>
+<p>Please note that regardless of the assets you hold, once the cross-chain sync process is complete, you won't earn any returns, so don't forget to withdraw your assets promptly.</p>
+<h3 id="how-long-does-the-cross-chain-synchronization-operation-take"><a class="header" href="#how-long-does-the-cross-chain-synchronization-operation-take">How long does the cross-chain synchronization operation take?</a></h3>
+<p>Cross-chain synchronization is divided into two parts: deposit and withdrawal.</p>
+<p>For deposits, we withdraw the unlocked portion of DAI that users deposit into the protocol, transfer it to the Ethereum chain to deposit as CHAI, and then bring the CHAI back to the original chain's protocol. Since each chain's native bridge verification time varies, this can take several hours to a week.</p>
+<p>For withdrawals, we extract the corresponding CHAI from the protocol, take it out on Ethereum to retrieve as DAI, and then transfer the DAI back to the original chain's protocol. Since Ethereum requires about 96 confirmations to reach the FINALITY state and considering operation execution time, it takes about 30 minutes.</p>
+<p>Initially, we will use third-party cross-chain bridges or even centralized exchanges to save on deposit operation time, aiming to guarantee the protocol's annualized return rate. We expect the execution cycle to range from 12 hours to a day. Over time, or when deposits stabilize, we'll gradually transition to native cross-chain bridges to ensure the protocol's security.</p>
+<h3 id="can-i-convert-cha-tokens-to-chai"><a class="header" href="#can-i-convert-cha-tokens-to-chai">Can I convert CHA tokens to CHAI?</a></h3>
+<p>You can choose to convert your CHA tokens to CHAI at any time. However, this conversion requires a full cross-chain sync cycle, which might take over 7 days. You can also use the emergency withdrawal feature to take out your CHA in corresponding proportions of DAI and CHAI.</p>
+<p>When liquidity allows, you can redeem your held CHAI in the form of DAI and then reinvest to convert your original CHAI to CHA. We recommend selling through Balancer at a better price to earn the price difference.</p>
+<h3 id="why-is-the-displayed-yield-different-from-the-apr-provided-by-dsr"><a class="header" href="#why-is-the-displayed-yield-different-from-the-apr-provided-by-dsr">Why is the displayed yield different from the APR provided by DSR?</a></h3>
+<p>Due to our protocol's reliance on cross-chain synchronization, even though we've adopted methods to reduce cross-chain time and improve fund utilization, we still can't offer an APR consistent with DSR itself. Therefore, the actual yield might be slightly lower.</p>
+<h3 id="are-cha-and-chai-the-same-on-each-chain"><a class="header" href="#are-cha-and-chai-the-same-on-each-chain">Are CHA and CHAI the same on each chain?</a></h3>
+<p>Note that, due to our implementation, CHA token prices and contract addresses on each chain are different. Do not attempt any cross-chain interactions, as we are not responsible for any losses. </p>
+<p>CHAI tokens, other than those on Ethereum, are minted and redeemed by Wormhole Bridge. Essentially, they're the same thing with consistent pricing, redeemable at the same ratio. Due to liquidity concerns, market sale prices might differ.</p>
+<h2 id="providing-liquidity"><a class="header" href="#providing-liquidity">Providing Liquidity</a></h2>
+<h3 id="earnings-from-providing-liquidity"><a class="header" href="#earnings-from-providing-liquidity">Earnings from Providing Liquidity</a></h3>
+<p>By providing CHA/CHAI liquidity on Balancer, you can earn swap fees on top of the basic earnings from holding CHA and CHAI. You can act as a potential arbitrageur, selling CHAI at a premium to users who want to instantly convert from CHA to CHAI to get the full return rate. Thus, in theory, you might even earn more than the DSR itself.</p>
+<h3 id="do-i-need-to-pledge-lp-to-earn"><a class="header" href="#do-i-need-to-pledge-lp-to-earn">Do I need to pledge LP to earn?</a></h3>
+<p>We're committed to giving users more choices and control. You don't need to stake LP tokens in any protocol. However, we're exploring partnerships with other protocols to introduce LP lending or even yield in the future, possibly requiring you to deposit LP in other protocols for additional earnings.</p>
+<h2 id="security"><a class="header" href="#security">Security</a></h2>
+<p>Security is the lifeline that determines the survival of every protocol. Therefore, at Cha.Money, we place great emphasis on contract security. Since our protocol is not yet live, we cannot display any audit reports. However, we will implement measures to ensure the overall security of the protocol.</p>
+<h3 id="timelock"><a class="header" href="#timelock">Timelock</a></h3>
+<p>For every proxy contract and essential control function, we will use a time-lock contract that lasts up to 7 days. If users notice any anomalies, they can invoke the Emergency Withdraw function to directly withdraw the corresponding proportions of DAI and CHAI from the Vault.</p>
+<h3 id="multisig-wallet"><a class="header" href="#multisig-wallet">Multisig Wallet</a></h3>
+<p>Our team members come from Moe.Finance; therefore, we will continue to use our 3-5 multisig wallet for management. This approach will minimize the chances of malicious actions caused by a portion of our staff.</p>
+<h3 id="operator"><a class="header" href="#operator">Operator</a></h3>
+<p>By separating protocol governance from cross-chain sync operators, we can perform cross-chain synchronization in a more flexible manner during the early stages of the project. Operators will only be allowed to extract the unlocked portion of DAI from the protocol and apply for the redemption of a portion of CHAI tokens. At the same time, operators will use a cross-chain multisig wallet. Even in the worst-case scenario of multiple EOA (Externally Owned Accounts) performing malicious actions simultaneously, users can use the Emergency Withdraw function to retrieve the remaining locked portions of DAI and CHAI tokens from the protocol.</p>
+<h3 id="guardian"><a class="header" href="#guardian">Guardian</a></h3>
+<p>To prevent subsequent users from depositing assets into the protocol after an operator has carried out malicious actions, leading to even greater losses, we have introduced external guardians. We plan to delegate this authority to MakerDAO, allowing them to execute the Emergency Pause function during the timelock waiting period. This action will disable all functions except for Emergency Withdraw, minimizing potential losses.</p>
+<h3 id="oracle"><a class="header" href="#oracle">Oracle</a></h3>
+<p>The core functionality of Cha.Money does not rely on external oracles. However, considering that we might need to integrate with external partners and provide price feeds for the redemption operation that directly converts CHAI to DAI, we are currently in talks with Axelar.Network to safely and reliably obtain the exchange ratio between CHAI and DAI.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Introduction_zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="FAQ_zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Introduction_zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="FAQ_zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
