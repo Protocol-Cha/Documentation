@@ -168,8 +168,15 @@
                     <main>
                         <h1 id="introduction-to-protocol-cha"><a class="header" href="#introduction-to-protocol-cha">Introduction to Protocol Cha</a></h1>
 <p>Our team members often hear complaints in the community about the exorbitant Gas fees on ETH, to the extent that they want to deposit some DAI but realize the costs vastly overshadow the anticipated future returns. Based on market research, we decided to leverage our existing projects to introduce Ethereum's DSR to other cost-effective chains. This allows users to be free from the high transaction fees, enabling them to save and manage their funds in a much more flexible manner.</p>
-<h2 id="what-does-cha-do"><a class="header" href="#what-does-cha-do">What does CHA do?</a></h2>
 <p>CHAI is a DSR interest-bearing token on the Ethereum chain, with its price appreciating over time accumulating DAI deposit rewards. By introducing this token to other chains via the Wormhole cross-chain bridge, we can rely on its intrinsic pricing model for accruing interest, making the interest accumulation process smoother and more reliable.</p>
+<h2 id="the-role-of-cha"><a class="header" href="#the-role-of-cha">The Role of CHA</a></h2>
+<p>We've returned ownership to the users.</p>
+<p>Compared to the sDAI solution, we expand the benefits of DSR to other EVM-compatible chains with the security provided by Wormhole. Users can choose to exit at any time. Compared to centralized solutions like exchanges, our advantage is even more apparent. We adopt a permission-less solution, so users can use their CHA for mining or even collateralized loans (not yet launched), enhancing utilization while retaining ownership of funds.</p>
+<h2 id="composition-of-cha"><a class="header" href="#composition-of-cha">Composition of CHA</a></h2>
+<p>CHA is a yield-bearing token consisting of two main components.</p>
+<p>Firstly, users' DAI deposits. This part is easy to understand. Users deposit DAI into the protocol, which becomes part of a Vault. To maximize utilization and improve the overall APY, we invest these funds in well-audited and reputable protocols like AAVE to earn lending yields, sharing these profits with all CHA holders. Due to incidents like Euler.Finance, which showcased the inherent risks in the Web3 world, we'll periodically analyze and assess to decide whether to withdraw or deposit user funds into other reputable protocols.</p>
+<p>Secondly, the CHAI component. CHAI is an ancient and practical DSR interest-bearing token. We chose it because it's been around for almost four years, and our thorough checks found no potential vulnerabilities. Its implementation is very native-like, giving us more flexibility in writing smart contracts.</p>
+<p>These two components together form the CHA token. Users will earn from both these tokens. Periodically, we'll synchronize funds, cross-chain any unutilized DAI in the contract to deposit into the DSR protocol, and bring back CHAI to place in the Vault contract.</p>
 
                     </main>
 

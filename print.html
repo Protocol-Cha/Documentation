@@ -209,11 +209,26 @@
 <p>總而言之，通過結合DAI和CHAI，CHA是一種以創新式的方式為用戶提供多種存款選擇的存款協議。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-to-protocol-cha"><a class="header" href="#introduction-to-protocol-cha">Introduction to Protocol Cha</a></h1>
 <p>Our team members often hear complaints in the community about the exorbitant Gas fees on ETH, to the extent that they want to deposit some DAI but realize the costs vastly overshadow the anticipated future returns. Based on market research, we decided to leverage our existing projects to introduce Ethereum's DSR to other cost-effective chains. This allows users to be free from the high transaction fees, enabling them to save and manage their funds in a much more flexible manner.</p>
-<h2 id="what-does-cha-do"><a class="header" href="#what-does-cha-do">What does CHA do?</a></h2>
 <p>CHAI is a DSR interest-bearing token on the Ethereum chain, with its price appreciating over time accumulating DAI deposit rewards. By introducing this token to other chains via the Wormhole cross-chain bridge, we can rely on its intrinsic pricing model for accruing interest, making the interest accumulation process smoother and more reliable.</p>
+<h2 id="the-role-of-cha"><a class="header" href="#the-role-of-cha">The Role of CHA</a></h2>
+<p>We've returned ownership to the users.</p>
+<p>Compared to the sDAI solution, we expand the benefits of DSR to other EVM-compatible chains with the security provided by Wormhole. Users can choose to exit at any time. Compared to centralized solutions like exchanges, our advantage is even more apparent. We adopt a permission-less solution, so users can use their CHA for mining or even collateralized loans (not yet launched), enhancing utilization while retaining ownership of funds.</p>
+<h2 id="composition-of-cha"><a class="header" href="#composition-of-cha">Composition of CHA</a></h2>
+<p>CHA is a yield-bearing token consisting of two main components.</p>
+<p>Firstly, users' DAI deposits. This part is easy to understand. Users deposit DAI into the protocol, which becomes part of a Vault. To maximize utilization and improve the overall APY, we invest these funds in well-audited and reputable protocols like AAVE to earn lending yields, sharing these profits with all CHA holders. Due to incidents like Euler.Finance, which showcased the inherent risks in the Web3 world, we'll periodically analyze and assess to decide whether to withdraw or deposit user funds into other reputable protocols.</p>
+<p>Secondly, the CHAI component. CHAI is an ancient and practical DSR interest-bearing token. We chose it because it's been around for almost four years, and our thorough checks found no potential vulnerabilities. Its implementation is very native-like, giving us more flexibility in writing smart contracts.</p>
+<p>These two components together form the CHA token. Users will earn from both these tokens. Periodically, we'll synchronize funds, cross-chain any unutilized DAI in the contract to deposit into the DSR protocol, and bring back CHAI to place in the Vault contract.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="有關cha的詳細介紹"><a class="header" href="#有關cha的詳細介紹">有關CHA的詳細介紹</a></h1>
 <p>我們的團隊成員經常在社群中聽到有人抱怨ETH的Gas費過於高昂，以至於他們想要存入一些DAI卻發現花費遠大於未來預期收入的言論。通過調研市場需求，我們決定在已有項目作爲基礎，將以太鏈的DSR引入其他低成本的鏈上，從而使得用戶不再受到高昂手續費的約束，將資金以更爲靈活的方式進行儲蓄與組合。</p>
-<p>CHAI是一個位於以太鏈上的DSR計息收益代幣，其價格會隨著時間積纍DAI的存入獎勵，這也是我們協議的名字來源。通過將該代幣通過Wormhole跨鏈橋引入其他鏈上，我們可以依賴其本身的價格模型進行計息，從而使得利息積纍過程變得更爲平滑和可靠。</p>
+<p>CHAI是一個位於以太鏈上的DSR計息收益代幣, 基於EIP-5115實現，其價格會隨著時間積纍DAI的存入獎勵，這也是我們協議的名字來源。通過將該代幣通過Wormhole跨鏈橋引入其他鏈上，我們可以依賴其本身的價格模型進行計息，從而使得利息積纍過程變得更爲平滑和可靠。</p>
+<h2 id="cha的作用"><a class="header" href="#cha的作用">CHA的作用</a></h2>
+<p>我們將自己的所有權重新交還給了用戶。</p>
+<p>相對於sDAI的解決方案來説，我們通過Wormhole的安全性得以將DSR的收益拓展至其他EVM兼容鏈上，用戶可以隨時選擇退出。而相對於交易所等中心化解決方案來説，我們優勢則更爲明顯，我們整體采用無需許可的解決方案，因此用戶可以使用他們的CHA來進行挖礦甚至是抵押借貸(目前尚未推出)，以此在保留資金所有權的情況提升自己的利用率。</p>
+<h2 id="cha的組成"><a class="header" href="#cha的組成">CHA的組成</a></h2>
+<p>CHA是一個打包收益代幣，其由兩個主要組成部分構成。</p>
+<p>首先是用戶的DAI存款。這部分非常容易理解，用戶將DAI存入協議，這部分存款將會作爲Vault的一部分。爲了盡可能提高自己利用率，提升協議的整體年化，我們會將這部分資金投入AAVE等經過多輪審計且信譽良好的協議中賺取借貸收益，同時將這部分收益分享給所有的CHA持有人。由於Euler.Finance事件已經證明了Web3世界隱含的危險性，因此我們將會不定期進行分析與評估，以決定是否將用戶資金進行取出或存放于其他信譽良好的協議中。</p>
+<p>其次則是CHAI部分。CHAI是一個古老且實用的DSR計息打包代幣。我們選用它的原因首先是其已經存在了接近4年時間，同時在我們全面且細緻的檢查中并未發現任何潛在漏洞；其次是它的實現非常近似於原生，這使得我們在編寫智能合約上擁有更好的自由度。</p>
+<p>這兩部分共同構成了CHA代幣。用戶將同時從這兩種代幣中賺取對應的收益，我們也將會不定期完成資金的同步過程，將合約中所有未被使用鎖定的DAI經過跨鏈后存入DSR協議并將CHAI跨鏈回來放入Vault合約中。</p>
 
                     </main>
 
